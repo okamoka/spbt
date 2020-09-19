@@ -8,6 +8,15 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+sourceSets {
+	main {
+		resources {
+			// MyBatis の xml を src/main/java 以下に配置するための設定
+			srcDirs += "src/main/java"
+		}
+	}
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
