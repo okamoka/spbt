@@ -7,4 +7,11 @@ spring:
   h2:
     console:
       enabled: true
-
+  # アプリケーション起動時にデータベースを初期化しないようにする
+  jpa:
+    hibernate:
+      ddl-auto: update
+# sqllog
+logging:
+  level:
+    sql: debug
