@@ -25,4 +25,5 @@ public class Tweet {
 
    @Column(nullable = false)
    private String message;
+
 }
