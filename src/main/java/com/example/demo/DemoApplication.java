@@ -3,7 +3,9 @@ package com.example.demo;
 import java.util.Optional;
 
 import com.example.demo.domain.jpasample.Customer;
+import com.example.demo.domain.jpasample.FileLob;
 import com.example.demo.usecase.repository.CustomerRepository;
+import com.example.demo.usecase.repository.FileLobRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,22 @@ public class DemoApplication {
 	private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
 
 	@Bean
+	public CommandLineRunner fileLobTest(FileLobRepository repository) {
+		return (args) -> {
+			repository.save(new FileLob("aaa", 1L,"bbb".getBytes()));
+			repository.save(new FileLob("bbb", 1L,"bbb".getBytes()));
+			repository.save(new FileLob("ccc", 2L,"bbb".getBytes()));
+			repository.save(new FileLob("ddd", 2L,"ccc".getBytes()));
+			repository.save(new FileLob("eee", 3L,"bbb".getBytes()));
+
+			repository.findByTid(2L).forEach(x -> {
+				log.info(x.toString());
+			});
+
+		};
+	}
+
+	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
 			repository.save(new Customer("Jack", "Bauer"));
@@ -33,14 +51,12 @@ public class DemoApplication {
 			}
 			log.info("");
 			// fetch an individual customer by ID
-			Optional<Customer> customer = repository.findById(1L);
-			log.info("Customer found with findById(1L):");
-			log.info("--------------------------------");
-			String logMessage = customer.get().toString();
-			log.info(logMessage);
-			log.info("");
-
-			log.info("Customer found with findById(1)");
+			// Optional<Customer> customer = repository.findById(1L);
+			// log.info("Customer found with findById(1L):");
+			// log.info("--------------------------------");
+			// String logMessage = customer.get().toString();
+			// log.info(logMessage);
+			// log.info("");
 
 			// fetch customers by last name
 			log.info("Customer found with findByLastName('Bauer'):");
