@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import java.util.Optional;
-
 import com.example.demo.domain.jpasample.Customer;
 import com.example.demo.domain.jpasample.FileLob;
 import com.example.demo.usecase.repository.CustomerRepository;
