@@ -4,7 +4,7 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-<title>Spring Boot Sample Site</title>
+<title>Site</title>
 <meta name="description" content="common-meta">
 <link th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" rel="stylesheet" />
 <link th:href="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.css}" rel="stylesheet" />
@@ -13,15 +13,19 @@
 <script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
 </head>
 <body>
-    <div class="col-lg-6">
-        <div class="bg-primary">
-            <form th:action="@{/}" method="post">
-                <h2 layout:fragment="header"></h2>
-                <button>ログアウト</button>
-            </form>
-        </div>
+    <div>
+        <!-- header -->
+        <div layout:replace="~{fragments/header::header}"></div>
+        <!-- header end -->
+
+        <!-- contents -->
         <div layout:fragment="contents"></div>
-        <footer style="text-align:right;">共通フッタ</footer>
+        <!-- contents end -->
+
+        <!-- footer -->
+        <div layout:replace="~{fragments/footer::footer}"></div>
+        <!-- footer end -->
+
     </div>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{fragments/layout}">
+
+<head>
+<title>個別ページタイトル</title>
+<meta name="description" content="個別metaタグ">
+</head>
+<body>
+    <div layout:fragment="contents">
+        <P>受信一覧</P>
+        <div id="hello-text"></div>
+        <!-- 個別ページでjquery-uiが正しくうごくか検証します -->
+        <input type="text" class="datepicker"/>
+        <script>
+            $(function() {
+                $('#hello-text').text('Hello SpringBoot from JQuery!!');
+                $('.datepicker').datepicker();
+            });
+        </script>
+    </div>
+</body>
+</html>
