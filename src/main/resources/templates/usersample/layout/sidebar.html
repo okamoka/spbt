@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>サイドバー</title>
+</head>
+<body>
+ 
+  <!--
+    th:fragmentでhtmlを部品化
+    th:removeの属性tagでdivタグを削除
+  -->
+  <div class="sidebar-class" th:fragment="fra-sidebar" th:remove="tag">
+    <form id="sidebar-form" th:action="@{/users/new}" th:method="post">
+      <input class="btn btn-primary btn-lg" type="submit" value="新規登録" />
+    </form>
+  </div>
+ 
+</body>
+</html>

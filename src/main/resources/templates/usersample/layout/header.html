@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ヘッダー</title>
+</head>
+<body>
+ 
+  <!--
+    th:fragmentでhtmlを部品化
+    th:removeの属性tagでdivタグを削除
+  -->
+  <div class="header-class" th:fragment="fra-header" th:remove="tag">
+    <h1>Spring Boot 勉強用 ビュー</h1>
+  </div>
+ 
+</body>
+</html>

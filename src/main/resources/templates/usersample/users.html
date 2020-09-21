@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>ユーザ情報一覧画面</title>
+
+<link th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.css}" rel="stylesheet" />
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+ 
+  <div class="container">
+ 
+    <!--ヘッダー -->
+    <header class="mt-5">
+      <div id="header-container" th:insert="usersample/layout/header :: fra-header"></div>
+    </header>
+ 
+    <div class="row mt-5">
+ 
+      <!--col-smで解像度がスマホ(～767px)以下の時、２列表示 -->
+ 
+      <!--メニュー・サイドバー -->
+      <nav class="col-sm-2">
+        <div id="sidebar-container"
+          th:insert="usersample/layout/sidebar :: fra-sidebar"></div>
+      </nav>
+ 
+      <!--メイン -->
+      <section id="main-container" class="offset-sm-1 col-sm-9">
+        <table class="table">
+ 
+          <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>メール</th>
+            <th>住所</th>
+            <th>性別</th>
+            <th>備考</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>oka</td>
+              <td>ju.7@gl.com</td>
+              <td>tokyo</td>
+              <td>male</td>
+              <td>etc</td>
+              <td><a class="btn btn-success"
+                >編集</a></td>
+              <td><a class="btn btn-danger"
+                >削除</a></td>
+           </tr>
+ 
+        </table>
+      </section>
+ 
+    </div>
+ 
+  </div>
+ 
+</body>
+</html>
